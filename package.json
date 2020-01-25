@@ -1,0 +1,16 @@
+{
+  "name": "node-auth1-project",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/Hammurobbie/node-auth1-project.git",
+  "author": "<rthomporter@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "server": "nodemon index.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "express": "^4.17.1",
+    "nodemon": "^2.0.2"
+  }
+}
