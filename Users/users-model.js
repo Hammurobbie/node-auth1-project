@@ -17,7 +17,7 @@ function find() {
 function register(userData) {
   return db("users")
     .insert(userData)
-    .then(ids => {
-      return findById(ids[0]);
+    .then(usr => {
+      return findBy(usr[0]);
     });
 }

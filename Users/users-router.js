@@ -9,6 +9,7 @@ const bcrypt = require("bcryptjs");
 const restricted = require("../auth/restricted-middleware");
 
 router.get("/users", restricted, (req, res) => {
+  console.log(req.session);
   users
     .find()
     .then(users => {
@@ -41,13 +42,25 @@ router.post("/login", (req, res) => {
     .first()
     .then(user => {
       user && bcrypt.compareSync(req.body.password, user.password)
-        ? res.status(200).json({ message: `Welcome, ${user.username}!` })
+        ? (req.session.user = req.body.username) &&
+          res.send(`Welcome, ${req.body.username}`) &&
+          console.log(req.session)
         : res.status(401).json({ message: `Invlaid user credientials` });
     })
     .catch(err => {
       console.log(err.message);
       res.status(401).json({ message: "Unable to retrieve user" });
     });
+});
+
+router.get("/logout", (req, res) => {
+  req.session
+    ? req.session.destroy(err => {
+        err
+          ? res.send("error logging out")
+          : res.send("You've been logged out");
+      })
+    : res.send("session does not exist");
 });
 
 module.exports = router;
