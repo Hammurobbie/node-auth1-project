@@ -1,0 +1,22 @@
+{
+  "name": "node-auth1-project",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/Hammurobbie/node-auth1-project.git",
+  "author": "<rthomporter@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "server": "nodemon index.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "connect-session-knex": "^1.5.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "express-session": "^1.17.0",
+    "knex": "^0.20.8",
+    "knex-cleaner": "^1.3.0",
+    "nodemon": "^2.0.2",
+    "sqlite3": "^4.1.1"
+  }
+}
